@@ -49,8 +49,3 @@ temp/
 # --- TS-Node / ts-node-dev ---
 *.ts-node
 .cache/
-
-# --- Optional: Ignore transpiled JS next to TS files ---
-# (Falls du "emit" im tsconfig aktiviert hast)
-*.js
-*.js.map
