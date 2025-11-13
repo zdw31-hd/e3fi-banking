@@ -1,0 +1,56 @@
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# --- TypeScript Build Output ---
+dist/
+build/
+out/
+tsbuildinfo.tsbuildinfo
+*.tsbuildinfo
+
+# --- Optional: keep tsc incremental caches out ---
+*.tsbuildinfo
+
+# --- Testing ---
+coverage/
+.jest/
+
+# --- Logs ---
+logs/
+*.log
+*.log.*
+debug.log
+error.log
+
+# --- Environment Variables ---
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Temp files ---
+tmp/
+temp/
+*.tmp
+*.temp
+
+# --- TS-Node / ts-node-dev ---
+*.ts-node
+.cache/
+
+# --- Optional: Ignore transpiled JS next to TS files ---
+# (Falls du "emit" im tsconfig aktiviert hast)
+*.js
+*.js.map
