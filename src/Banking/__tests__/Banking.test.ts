@@ -68,14 +68,35 @@ describe('PremiumSavingsAccount', () => {
 
 describe('Abstrakte SavingsAccount-Grundlogik mit TestSavingsAccount', () => {
   test('calculateInterest: liefert erwarteten Zins für gegebene Tage', () => {
- 
+    const balance = 1000;
+    const rate = 0.5; // 0.5% p.a.
+    const acc = new TestSavingsAccount('Kunde', balance, rate);
+
+    const past = new Date();
+    past.setDate(past.getDate() - 10); // 10 Tage
+    (acc as any).lastInterestDate = past;
+
+    const interest = acc.calculateInterest();
+    const expected = (balance * rate * 10) / 36500;
+
+    expect(interest).toBeCloseTo(expected, 5);
   });
 
   test('withdraw: kann Mindestguthaben nicht unterschreiten', () => {
+    const acc = new TestSavingsAccount('Kunde', 200, 0.5);
 
+    const result = acc.withdraw(150); // 200 - 150 = 50 < 100 -> false
+
+    expect(result).toBe(false);
+    expect(acc.getBalance()).toBe(200);
   });
 
   test('deposit: nutzt validateAmount und erhöht Balance', () => {
+    const acc = new TestSavingsAccount('Kunde', 100, 0.5);
 
+    const result = acc.deposit(50);
+
+    expect(result).toBe(true);
+    expect(acc.getBalance()).toBe(150);
   });
 });
