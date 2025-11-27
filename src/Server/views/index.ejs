@@ -1,0 +1,33 @@
+<%- include('partials/header', { title: 'E3FI Banking', user }) %>
+  <div class="card">
+    <h1>Willkommen bei E3FI Banking</h1>
+    <p class="muted">
+      Kleine Lernbank zum Üben von TypeScript, OOP und Web-APIs. Melde dich an und lege Sparkonten an,
+      zahle Geld ein, hebe ab und buche Zinsen.
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
+      <a class="btn" href="/signup">Jetzt registrieren</a>
+      <a class="btn btn-ghost" href="/login">Ich habe schon ein Konto</a>
+    </div>
+  </div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Was steckt drin?</h3>
+      <ul>
+        <li>Express API + EJS Views</li>
+        <li>In-Memory User- & Konto-Verwaltung</li>
+        <li>Standard vs. Premium Sparkonten</li>
+        <li>Einfache Session-Auth</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Lernpfad-Ideen</h3>
+      <ul>
+        <li>Validierung erweitern (zod)</li>
+        <li>Datenbank (SQLite/Prisma) anschließen</li>
+        <li>REST + Tests mit Supertest</li>
+        <li>Transaktions-Log ergänzen</li>
+      </ul>
+    </div>
+  </div>
+<%- include('partials/footer') %>

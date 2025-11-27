@@ -1,0 +1,60 @@
+<%- include('partials/header', { title: 'Dashboard', user }) %>
+  <div class="card">
+    <h2>Hallo, <%= user.name %>!</h2>
+    <p class="muted">Verwalte deine Sparkonten und buche Zinsen.</p>
+    <% if (message) { %><p class="success"><%= message %></p><% } %>
+    <% if (error) { %><p class="danger"><%= error %></p><% } %>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Konto anlegen</h3>
+      <form method="post" action="/accounts">
+        <label for="accountType">Typ</label>
+        <select id="accountType" name="accountType">
+          <option value="standard">Standard-Spar</option>
+          <option value="premium">Premium-Spar</option>
+        </select>
+        <label for="initialBalance">Startguthaben (€)</label>
+        <input id="initialBalance" name="initialBalance" type="number" step="0.01" min="0" value="1000" />
+        <button class="btn" type="submit">Erstellen</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Zinsen</h3>
+      <p class="muted">Wendet auf alle Konten die Zinslogik an.</p>
+      <form method="post" action="/accounts/apply-interest">
+        <button class="btn btn-ghost" type="submit">Zinsen buchen</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Deine Konten</h3>
+    <% if (!accounts.length) { %>
+      <p class="muted">Noch keine Konten. Lege oben ein Konto an.</p>
+    <% } else { %>
+      <div class="grid grid-2">
+        <% accounts.forEach(acc => { %>
+          <div class="card">
+            <h4><%= acc.type %> - <%= acc.accountNumber %></h4>
+            <p>Saldo: <strong>€ <%= acc.balance.toFixed(2) %></strong></p>
+            <div class="grid">
+              <form method="post" action="/accounts/<%= acc.accountNumber %>/deposit">
+                <label>Einzahlen (€)</label>
+                <input name="amount" type="number" step="0.01" min="0.01" required />
+                <button class="btn" type="submit">Einzahlen</button>
+              </form>
+              <form method="post" action="/accounts/<%= acc.accountNumber %>/withdraw">
+                <label>Abheben (€)</label>
+                <input name="amount" type="number" step="0.01" min="0.01" required />
+                <button class="btn btn-ghost" type="submit">Abheben</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+<%- include('partials/footer') %>

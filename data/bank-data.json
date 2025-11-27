@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "d7d145bd-7514-4d43-b9e1-1ecbf5575abf",
+      "name": "David Huber",
+      "email": "david.huber@zdw31.eu",
+      "passwordHash": "6462448b4e4e3e69a02ddd74d5a805ca03a59d31e7a3b9e909e9c6f2d72dcdf8"
+    }
+  ],
+  "accounts": [
+    {
+      "accountNumber": "DE103013694784694910",
+      "ownerId": "d7d145bd-7514-4d43-b9e1-1ecbf5575abf",
+      "balance": 4000,
+      "type": "PremiumSavingsAccount",
+      "lastInterestDate": "2025-11-27T08:04:42.076Z",
+      "interestEarned": 0,
+      "withdrawalCount": 0,
+      "vipStatus": false
+    }
+  ]
+}
