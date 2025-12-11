@@ -15,6 +15,8 @@ import { buildAccountRoutes } from "./routes/accounts";
 import { buildPageRoutes } from "./routes/pages";
 import { attachUserToLocals } from "./middleware/sessionUser";
 import { requireAuth } from "./middleware/authGuard";
+import { NewsletterController } from "./controllers/newsletterController";
+import { NewsletterService } from "./services/newsletterService";
 
 const app = express();
 
@@ -43,13 +45,15 @@ const userRepo = new FileUserRepository(store);
 const accountRepo = new FileAccountRepository(store);
 const userService = new UserService(userRepo);
 const accountService = new AccountService(accountRepo);
+const newsletterService = new NewsletterService();
 
 const authController = new AuthController(userService);
 const accountController = new AccountController(accountService);
 const pageController = new PageController();
+const newsletterController = new NewsletterController(newsletterService);
 
 // Routes
-app.use("/", buildPageRoutes(pageController, accountController));
+app.use("/", buildPageRoutes(pageController, accountController, newsletterController));
 app.use("/", buildAuthRoutes(authController));
 app.use("/accounts", requireAuth, buildAccountRoutes(accountController));
 

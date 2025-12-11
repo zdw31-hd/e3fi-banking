@@ -1,0 +1,71 @@
+<section>
+
+  <div class="card">
+    <h2>📨 <%= newsletter.title %></h2>
+    <p class="muted">
+      Aktuelle Neuigkeiten rund um digitales Banking, Sicherheit und Ihre Finanzen.
+    </p>
+  </div>
+
+  <% if (newsletter && newsletter.articles && newsletter.articles.length > 0) { %>
+
+    <div class="card">
+      <h3>🌟 Top-Thema</h3>
+      <h4><%= newsletter.articles[0].title %></h4>
+      <p><%= newsletter.articles[0].excerpt %></p>
+      <span class="muted">
+        <%= newsletter.articles[0].date %> • <%= newsletter.articles[0].tag %>
+      </span>
+    </div>
+
+    <div class="grid grid-2">
+      <% newsletter.articles.slice(1).forEach(article => { %>
+        <div class="card">
+          <h4><%= article.title %></h4>
+          <p><%= article.excerpt %></p>
+          <span class="muted">
+            <%= article.date %> • <%= article.tag %>
+          </span>
+        </div>
+      <% }) %>
+    </div>
+
+  <% } else { %>
+
+    <div class="card">
+      <p class="muted">Aktuell sind keine Newsletter-Artikel verfügbar.</p>
+    </div>
+
+  <% } %>
+
+  <div class="card">
+    <h3>📬 Newsletter abonnieren</h3>
+
+    <% if (success) { %>
+      <p class="success"><%= success %></p>
+    <% } %>
+
+    <% if (error) { %>
+      <p class="danger"><%= error %></p>
+    <% } %>
+
+    
+    <form method="POST" action="/newsletter/subscribe">
+      <label for="email">Ihre E-Mail-Adresse</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="<%= user.email %>"
+        required
+      />
+
+      <button type="submit" class="btn">Abonnieren</button>
+    </form>
+
+    <p class="muted">
+      Wir respektieren Ihre Daten. Abmeldung jederzeit möglich.
+    </p>
+  </div>
+
+</section>

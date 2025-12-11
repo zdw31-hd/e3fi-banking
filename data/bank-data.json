@@ -5,6 +5,12 @@
       "name": "David Huber",
       "email": "david.huber@zdw31.eu",
       "passwordHash": "6462448b4e4e3e69a02ddd74d5a805ca03a59d31e7a3b9e909e9c6f2d72dcdf8"
+    },
+    {
+      "id": "154222e4-a905-4e8f-942e-6d3c9cc548cc",
+      "name": "max",
+      "email": "m.bres@web.de",
+      "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
     }
   ],
   "accounts": [
@@ -13,7 +19,27 @@
       "ownerId": "d7d145bd-7514-4d43-b9e1-1ecbf5575abf",
       "balance": 4000,
       "type": "PremiumSavingsAccount",
-      "lastInterestDate": "2025-11-27T08:04:42.076Z",
+      "lastInterestdate": "2025-11-27T08:04:42.076Z",
+      "interestEarned": 0,
+      "withdrawalCount": 0,
+      "vipStatus": false
+    },
+    {
+      "accountNumber": "DE7070253550210477000",
+      "ownerId": "154222e4-a905-4e8f-942e-6d3c9cc548cc",
+      "balance": 1100.05,
+      "type": "StandardSavingsAccount",
+      "lastInterestdate": "2025-11-27T09:43:30.063Z",
+      "interestEarned": 0,
+      "withdrawalCount": 0,
+      "vipStatus": false
+    },
+    {
+      "accountNumber": "DE8629423847547935000",
+      "ownerId": "154222e4-a905-4e8f-942e-6d3c9cc548cc",
+      "balance": 1000,
+      "type": "PremiumSavingsAccount",
+      "lastInterestdate": "2025-11-27T10:11:50.808Z",
       "interestEarned": 0,
       "withdrawalCount": 0,
       "vipStatus": false
