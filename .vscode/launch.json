@@ -11,8 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\src\\index.ts",
-            "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\tsx",
+            "program": "${workspaceFolder}/src/Server/app.ts",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
